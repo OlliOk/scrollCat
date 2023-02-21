@@ -2,12 +2,14 @@ import UIKit
 
 final class ViewController: UIViewController {
     private lazy var mainImageView = MainImageView()
+    private lazy var selectYourPawSection = SelectYourPawSection()
     private let background = UIImageView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBackground()
         setupMainImageView()
+        setupSelectYourPawSection()
     }
 
     func setupBackground() {
@@ -32,6 +34,19 @@ final class ViewController: UIViewController {
             mainImageView.leadingAnchor.constraint(greaterThanOrEqualTo: background.leadingAnchor, constant: 8),
             mainImageView.widthAnchor.constraint(equalTo: mainImageView.heightAnchor),
             mainImageView.widthAnchor.constraint(lessThanOrEqualToConstant: 500)
+        ])
+    }
+
+    func setupSelectYourPawSection() {
+        selectYourPawSection.translatesAutoresizingMaskIntoConstraints = false
+        background.addSubview(selectYourPawSection)
+
+        NSLayoutConstraint.activate([
+            selectYourPawSection.topAnchor.constraint(equalTo: mainImageView.bottomAnchor),
+            selectYourPawSection.centerXAnchor.constraint(equalTo: background.centerXAnchor),
+            selectYourPawSection.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: -1),
+            selectYourPawSection.widthAnchor.constraint(equalTo: background.widthAnchor)
+
         ])
     }
 }

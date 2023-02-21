@@ -60,6 +60,8 @@ final class MainImageView: UIView {
         mainStackView.addArrangedSubview(mainImage)
 
         NSLayoutConstraint.activate([
+                    // Question: why not working (equalTo: mainStackView.centerXAnchor)
+            mainImage.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             mainImage.topAnchor.constraint(equalTo: mainStackView.topAnchor),
             mainImage.heightAnchor.constraint(equalTo: mainImage.widthAnchor),
             mainImage.leadingAnchor.constraint(greaterThanOrEqualTo: mainStackView.leadingAnchor, constant: 40),
