@@ -1,12 +1,6 @@
 import UIKit
 
 final class SelectYourPawSection: UIView {
-    private lazy var contentView: UIView = {
-        let contentView = UIView()
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-        return contentView
-    }()
-
     private let sectionHeader = UILabel()
     private let scrollView = UIScrollView()
 
@@ -20,16 +14,6 @@ final class SelectYourPawSection: UIView {
     }
 
     public func setupViews() {
-        addSubview(contentView)
-
-        NSLayoutConstraint.activate([
-            contentView.topAnchor.constraint(equalTo: topAnchor),
-            contentView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            contentView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            contentView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            //            contentView.widthAnchor.constraint(equalTo: widthAnchor)
-
-        ])
         setupSectionHeader()
         setupScrollView()
     }
@@ -45,26 +29,25 @@ final class SelectYourPawSection: UIView {
         sectionHeader.layer.borderWidth = 1
         sectionHeader.layer.borderColor = UIColor.systemPink.cgColor
 
-        contentView.addSubview(sectionHeader)
+        addSubview(sectionHeader)
 
         NSLayoutConstraint.activate([
-            sectionHeader.topAnchor.constraint(equalTo: contentView.topAnchor),
-            sectionHeader.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            sectionHeader.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            sectionHeader.topAnchor.constraint(equalTo: topAnchor),
+            sectionHeader.leadingAnchor.constraint(equalTo: leadingAnchor),
+            sectionHeader.trailingAnchor.constraint(equalTo: trailingAnchor),
             sectionHeader.heightAnchor.constraint(equalToConstant: 55)
         ])
     }
 
     private func setupScrollView() {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(scrollView)
+        addSubview(scrollView)
 
         NSLayoutConstraint.activate([
-            scrollView.widthAnchor.constraint(equalTo: contentView.widthAnchor),
-            scrollView.topAnchor.constraint(equalTo: sectionHeader.bottomAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            scrollView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            scrollView.topAnchor.constraint(equalTo: sectionHeader.bottomAnchor, constant: 5),
+            scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
         setupPawButtons()
     }
@@ -72,7 +55,6 @@ final class SelectYourPawSection: UIView {
 
     private func setupPawButtons() {
         let pawsStackView = UIStackView()
-
         pawsStackView.translatesAutoresizingMaskIntoConstraints = false
         pawsStackView.axis = .vertical
         pawsStackView.alignment = .center
@@ -82,7 +64,7 @@ final class SelectYourPawSection: UIView {
 
         Constant.paws.forEach { pawsStackView.addArrangedSubview(createPawButton(with: $0)) }
         NSLayoutConstraint.activate([
-            pawsStackView.widthAnchor.constraint(equalTo: contentView.widthAnchor),
+            pawsStackView.widthAnchor.constraint(equalTo: widthAnchor),
             pawsStackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             pawsStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             pawsStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),

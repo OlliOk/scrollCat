@@ -26,26 +26,29 @@ final class ViewController: UIViewController {
 
     func setupMainImageView() {
         mainImageView.translatesAutoresizingMaskIntoConstraints = false
-        background.addSubview(mainImageView)
+        view.addSubview(mainImageView)
 
         NSLayoutConstraint.activate([
-            mainImageView.topAnchor.constraint(equalTo: background.topAnchor, constant: 60),
-            mainImageView.centerXAnchor.constraint(equalTo: background.centerXAnchor),
-            mainImageView.leadingAnchor.constraint(greaterThanOrEqualTo: background.leadingAnchor, constant: 8),
+            mainImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 60),
+            mainImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            mainImageView.leadingAnchor.constraint(greaterThanOrEqualTo: view.leadingAnchor, constant: 10),
+            mainImageView.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -10),
+
+            mainImageView.heightAnchor.constraint(lessThanOrEqualToConstant: 600),
             mainImageView.widthAnchor.constraint(equalTo: mainImageView.heightAnchor),
-            mainImageView.widthAnchor.constraint(lessThanOrEqualToConstant: 500)
+
         ])
     }
 
     func setupSelectYourPawSection() {
         selectYourPawSection.translatesAutoresizingMaskIntoConstraints = false
-        background.addSubview(selectYourPawSection)
+        view.addSubview(selectYourPawSection)
 
         NSLayoutConstraint.activate([
-            selectYourPawSection.topAnchor.constraint(equalTo: mainImageView.bottomAnchor),
-            selectYourPawSection.centerXAnchor.constraint(equalTo: background.centerXAnchor),
-            selectYourPawSection.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: -1),
-            selectYourPawSection.widthAnchor.constraint(equalTo: background.widthAnchor)
+            selectYourPawSection.topAnchor.constraint(equalTo: mainImageView.bottomAnchor,constant: 8),
+            selectYourPawSection.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            selectYourPawSection.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -1),
+            selectYourPawSection.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -1),
 
         ])
     }
