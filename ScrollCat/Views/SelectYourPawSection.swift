@@ -27,7 +27,7 @@ final class SelectYourPawSection: UIView {
             contentView.centerXAnchor.constraint(equalTo: centerXAnchor),
             contentView.leadingAnchor.constraint(equalTo: leadingAnchor),
             contentView.bottomAnchor.constraint(equalTo: bottomAnchor),
-//            contentView.widthAnchor.constraint(equalTo: widthAnchor)
+            //            contentView.widthAnchor.constraint(equalTo: widthAnchor)
 
         ])
         setupSectionHeader()
@@ -78,7 +78,7 @@ final class SelectYourPawSection: UIView {
         pawsStackView.alignment = .center
         pawsStackView.spacing = 5
 
-        contentView.addSubview(pawsStackView)
+        scrollView.addSubview(pawsStackView)
 
         Constant.paws.forEach { pawsStackView.addArrangedSubview(createPawButton(with: $0)) }
         NSLayoutConstraint.activate([
