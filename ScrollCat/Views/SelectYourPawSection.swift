@@ -61,9 +61,10 @@ final class SelectYourPawSection: UIView {
 
         NSLayoutConstraint.activate([
             scrollView.widthAnchor.constraint(equalTo: contentView.widthAnchor),
-            scrollView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             scrollView.topAnchor.constraint(equalTo: sectionHeader.bottomAnchor),
             scrollView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
         ])
         setupPawButtons()
     }
@@ -81,10 +82,11 @@ final class SelectYourPawSection: UIView {
 
         Constant.paws.forEach { pawsStackView.addArrangedSubview(createPawButton(with: $0)) }
         NSLayoutConstraint.activate([
-            pawsStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
-            pawsStackView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            pawsStackView.widthAnchor.constraint(equalTo: contentView.widthAnchor),
             pawsStackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-//            pawsStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            pawsStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            pawsStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            pawsStackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
         ])
     }
 }
