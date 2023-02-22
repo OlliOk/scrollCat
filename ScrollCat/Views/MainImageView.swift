@@ -1,12 +1,6 @@
 import UIKit
 
 final class MainImageView: UIView {
-    private lazy var contentView: UIView = {
-        let contentView = UIView()
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-        return contentView
-    }()
-
     private let mainStackView = UIStackView()
 
     override init(frame: CGRect) {
@@ -19,29 +13,19 @@ final class MainImageView: UIView {
     }
 
     public func setupViews() {
-        addSubview(contentView)
-
-        NSLayoutConstraint.activate([
-            contentView.topAnchor.constraint(equalTo: topAnchor),
-            contentView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            contentView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            contentView.trailingAnchor.constraint(equalTo: trailingAnchor),
-        ])
-        setupMainStackView()
-    }
-
-    func setupMainStackView() {
         mainStackView.translatesAutoresizingMaskIntoConstraints = false
         mainStackView.axis = .vertical
+        mainStackView.distribution = .fillProportionally
+        mainStackView.alignment = .center
         mainStackView.spacing = 16
 
-        contentView.addSubview(mainStackView)
+        addSubview(mainStackView)
 
         NSLayoutConstraint.activate([
-            mainStackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            mainStackView.leadingAnchor.constraint(greaterThanOrEqualTo: contentView.leadingAnchor, constant: 8),
-            mainStackView.widthAnchor.constraint(lessThanOrEqualToConstant: 500),
-            mainStackView.widthAnchor.constraint(equalTo: mainStackView.heightAnchor)
+            mainStackView.topAnchor.constraint(equalTo: topAnchor),
+            mainStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            mainStackView.leadingAnchor.constraint(greaterThanOrEqualTo: leadingAnchor, constant: 8),
+            mainStackView.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -8),
         ])
 
         setupMainImage()
@@ -55,14 +39,14 @@ final class MainImageView: UIView {
         mainImage.layer.borderWidth = 3
         mainImage.layer.cornerRadius = 50
         mainImage.layer.masksToBounds = true
+        mainImage.contentMode = .scaleAspectFill
         mainImage.image = UIImage(named: "catMain")
 
         mainStackView.addArrangedSubview(mainImage)
 
         NSLayoutConstraint.activate([
-            mainImage.topAnchor.constraint(equalTo: mainStackView.topAnchor),
-            mainImage.heightAnchor.constraint(equalTo: mainImage.widthAnchor),
-            mainImage.leadingAnchor.constraint(greaterThanOrEqualTo: mainStackView.leadingAnchor, constant: 40),
+            mainImage.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor, constant: 20),
+            mainImage.trailingAnchor.constraint(equalTo: mainStackView.trailingAnchor, constant: -20)
         ])
     }
 
@@ -71,9 +55,9 @@ final class MainImageView: UIView {
         let buttonsStackView = UIStackView()
         buttonsStackView.translatesAutoresizingMaskIntoConstraints = false
         buttonsStackView.axis = .horizontal
-        buttonsStackView.alignment = .fill
         buttonsStackView.distribution = .fillEqually
-        buttonsStackView.spacing = 5
+        buttonsStackView.alignment = .fill
+        buttonsStackView.spacing = 8
 
         mainStackView.addArrangedSubview(buttonsStackView)
 
@@ -81,8 +65,7 @@ final class MainImageView: UIView {
 
         NSLayoutConstraint.activate([
             buttonsStackView.heightAnchor.constraint(equalToConstant: 40),
-            buttonsStackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            buttonsStackView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor)
+            buttonsStackView.widthAnchor.constraint(equalTo: mainStackView.widthAnchor)
         ])
     }
 }

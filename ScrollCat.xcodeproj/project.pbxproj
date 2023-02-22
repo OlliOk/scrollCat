@@ -12,7 +12,7 @@
 		D42BB05129A0FA4300645661 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D42BB05029A0FA4300645661 /* Assets.xcassets */; };
 		D42BB05429A0FA4300645661 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D42BB05229A0FA4300645661 /* LaunchScreen.storyboard */; };
 		D445D9FE29A507E80079D8E6 /* MainImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D445D9FD29A507E80079D8E6 /* MainImageView.swift */; };
-		D445DA0029A511090079D8E6 /* SelectYourPawSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D445D9FF29A511090079D8E6 /* SelectYourPawSection.swift */; };
+		D45D134329A600A000FC8961 /* SelectYourPawSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45D134229A600A000FC8961 /* SelectYourPawSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +23,7 @@
 		D42BB05329A0FA4300645661 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D42BB05529A0FA4300645661 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D445D9FD29A507E80079D8E6 /* MainImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainImageView.swift; sourceTree = "<group>"; };
-		D445D9FF29A511090079D8E6 /* SelectYourPawSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectYourPawSection.swift; sourceTree = "<group>"; };
+		D45D134229A600A000FC8961 /* SelectYourPawSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectYourPawSection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +94,7 @@
 			children = (
 				D42BB04B29A0FA4200645661 /* ViewController.swift */,
 				D445D9FD29A507E80079D8E6 /* MainImageView.swift */,
-				D445D9FF29A511090079D8E6 /* SelectYourPawSection.swift */,
+				D45D134229A600A000FC8961 /* SelectYourPawSection.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -170,7 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D42BB04C29A0FA4200645661 /* ViewController.swift in Sources */,
-				D445DA0029A511090079D8E6 /* SelectYourPawSection.swift in Sources */,
+				D45D134329A600A000FC8961 /* SelectYourPawSection.swift in Sources */,
 				D42BB04829A0FA4200645661 /* AppDelegate.swift in Sources */,
 				D445D9FE29A507E80079D8E6 /* MainImageView.swift in Sources */,
 			);
